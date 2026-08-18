@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56">
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="4" width="48" height="48" rx="14" fill="url(#mark)"/>
+  <path d="M16 16 L30 28 L16 40 Z" fill="#ffffff"/>
+  <path d="M30 16 L38 28 L30 40" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="62" y="38" font-family="'Geist', 'Segoe UI', Arial, sans-serif" font-size="28" font-weight="700">
+    <tspan fill="#18181b">Easy</tspan><tspan fill="#10b981">Go</tspan>
+  </text>
+</svg>
