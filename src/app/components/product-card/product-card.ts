@@ -12,6 +12,7 @@ export class ProductCard {
   @Input() productName: string = '';
   @Input() price: number = 0;
   @Input() imageUrl: string = '';
+  @Input() inStock: boolean = true;
 
   // Send event up to the parent
 @Output() addToCart =
