@@ -1,5 +1,7 @@
-<!-- <app-product-card/> -->
+<app-navbar
+  [cartCount]="cartCount()"
+  (searchChange)="onSearchChange($event)" />
 
-   <app-navbar [cartCount]="cartCount()"/>
-
- <app-product-list (addToCart)="onAddToCart()"/>
+<app-product-list
+  [searchTerm]="searchTerm()"
+  (addToCart)="onAddToCart($event)" />

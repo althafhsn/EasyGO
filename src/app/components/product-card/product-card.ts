@@ -15,11 +15,13 @@ export class ProductCard {
   @Input() inStock: boolean = true;
 
   // Send event up to the parent
-@Output() addToCart =
-  new EventEmitter<string>();
+  @Output() addToCart = new EventEmitter<{ name: string; qty: number }>();
 
-notifyAddToCart() {
-  this.addToCart.emit(this.productName);
-}
-
+  // qty comes straight from the #qtyInput element in the template
+  notifyAddToCart(qty: string) {
+    this.addToCart.emit({
+      name: this.productName,
+      qty: Number(qty) || 1,
+    });
+  }
 }

@@ -1,15 +1,22 @@
 <div class="flex flex-wrap items-center justify-center gap-4">
     <div class="bg-white rounded-2xl pb-4 overflow-hidden border border-gray-200 hover:-translate-y-1 transition duration-300">
         <img class="w-64 h-64 p-5 object-cover object-top" [src]="imageUrl" [alt]="productName">
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center px-4">
             <p class="font-medium mt-3">{{ productName }}</p>
             <p class="text-gray-500 text-sm">$ {{ price }}</p>
             <p class="text-gray-400 text-xs">Total incl. delivery: $ {{ price + 50 }}</p>
+
             @if (inStock) {
-                <button class="inline-flex items-center gap-1.5 border text-sm text-gray-500 border-gray-200 hover:bg-gray-100 transition cursor-pointer px-6 py-1 rounded-full mt-5" (click)="notifyAddToCart()">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Add to cart</span>
-                </button>
+                <div class="flex items-center gap-2 mt-4">
+                    <input #qtyInput type="number" value="1" min="1" max="10"
+                        class="w-14 text-center text-sm border border-gray-200 rounded-full py-1 outline-none" />
+                    <button
+                        class="inline-flex items-center gap-1.5 border text-sm text-gray-500 border-gray-200 hover:bg-gray-100 transition cursor-pointer px-5 py-1 rounded-full"
+                        (click)="notifyAddToCart(qtyInput.value)">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Add to cart</span>
+                    </button>
+                </div>
             } @else {
                 <p class="text-sm text-red-500 font-medium mt-5">Out of Stock</p>
             }
