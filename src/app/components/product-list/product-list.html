@@ -1,15 +1,31 @@
 <!-- product-list.html -->
-<div class="flex flex-wrap items-center justify-center gap-4 mt-8 px-6 md:px-16 lg:px-24 xl:px-32">
-  <input type="text" [(ngModel)]="searchText" placeholder="Search products"
-    class="border border-gray-300 rounded-full px-4 py-1.5 text-sm outline-none" />
-  <p class="text-sm text-gray-500">Searching for: {{ searchText }}</p>
+<div class="flex flex-wrap items-center justify-between gap-4 mt-10 px-6 md:px-16 lg:px-24 xl:px-32 pb-5 border-b border-gray-200">
+  <div>
+    <h2 class="text-lg font-semibold text-gray-800">Browse Products</h2>
+    @if (searchText) {
+      <p class="text-xs text-gray-400 mt-0.5">Showing results for "{{ searchText }}"</p>
+    }
+  </div>
 
-  <input #productInput type="text" placeholder="Type a product name"
-    class="border border-gray-300 rounded-full px-4 py-1.5 text-sm outline-none" />
-  <button (click)="showProduct(productInput.value)"
-    class="text-sm text-indigo-600 border border-indigo-200 hover:bg-indigo-50 transition cursor-pointer rounded-full px-4 py-1.5">
-    Show Product
-  </button>
+  <div class="flex flex-wrap items-center gap-3">
+    <div class="flex items-center gap-2 border border-gray-300 rounded-full px-3.5 py-1.5">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.836 10.615 15 14.695" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+        <path clip-rule="evenodd" d="M9.141 11.738c2.729-1.136 4.001-4.224 2.841-6.898S7.67.921 4.942 2.057C2.211 3.193.94 6.281 2.1 8.955s4.312 3.92 7.041 2.783" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <input type="text" [(ngModel)]="searchText" placeholder="Filter by name"
+        class="bg-transparent outline-none placeholder-gray-400 text-sm w-36" />
+    </div>
+
+    <div class="flex items-center gap-2 bg-indigo-50 border border-indigo-100 rounded-full pl-3.5 pr-1.5 py-1.5">
+      <input #productInput type="text" placeholder="Quick lookup"
+        class="bg-transparent outline-none placeholder-indigo-300 text-sm w-28" />
+      <button (click)="showProduct(productInput.value)"
+        class="text-xs font-medium text-white bg-indigo-500 hover:bg-indigo-600 transition cursor-pointer rounded-full px-3 py-1">
+        Go
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 w-full mt-10 px-6 md:px-16 lg:px-24 xl:px-32">
